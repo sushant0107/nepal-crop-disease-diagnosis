@@ -1,2 +1,3 @@
 # Ignore dataset folder
-data/Dataset/
+data/dataset_part_000
+data/hf_download
