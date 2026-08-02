@@ -27,6 +27,7 @@ notebooks/    Model training: CNN baseline, SmolVLM + LoRA fine-tuning
 models/       Saved model checkpoints
 results/      Evaluation: metrics, confusion matrices, evaluation notebook, class index
 docs/         Project management evidence: Gantt chart, Jira board, meeting minutes
+demo/         Demo interface: Gradio app for interactive crop disease diagnosis
 src/          (reserved for shared/reusable source modules)
 ```
 
@@ -38,6 +39,7 @@ src/          (reserved for shared/reusable source modules)
 - `models/baseline_cnn_final/baseline_cnn.pt`: trained CNN checkpoint
 - `results/crop_disease_model_evaluations.ipynb`: loads both trained models, computes metrics, confusion matrices, error analysis
 - `results/class_index.json`: class label index used by the CNN
+- `demo/demo.ipynb`: Gradio interface, upload a leaf photo and see both models' predictions side by side
 
 ## Dataset
 
@@ -60,6 +62,10 @@ Full details on labelling, class balancing, splits, and augmentation are in the 
 | Baseline CNN | From-scratch CNN classifier | `prathamshrestha69/CNN-baseline` |
 | Proposed model | SmolVLM-256M-Instruct + LoRA | `w4ashabii/SmolVLM256M_CropDisease` |
 
+## Demo Interface
+
+A lightweight Gradio app (`demo/demo.ipynb`) lets a non-technical user upload a leaf photo and see both models' outputs at once, the CNN's crop prediction and SmolVLM's full crop-and-disease description in plain language. Built for a farmer or extension worker to actually try, not just read metrics about.
+
 ## How to Run
 
 1. Clone this repo and install dependencies (PyTorch, `transformers`, `unsloth`, `huggingface_hub`).
@@ -67,6 +73,7 @@ Full details on labelling, class balancing, splits, and augmentation are in the 
 3. Run `notebooks/CNN-baseline.ipynb` to train/evaluate the baseline CNN, or download the pretrained checkpoint from `models/baseline_cnn_final/`.
 4. Run `notebooks/smolvlm256m_nepali_crop_finetune.ipynb` to fine-tune SmolVLM-256M, or pull the published adapter from the Hugging Face Hub link above.
 5. Run `results/crop_disease_model_evaluations.ipynb` to reproduce metrics, confusion matrices, and error analysis for both models.
+6. Run `demo/demo.ipynb` to launch an interactive Gradio demo where you can upload a leaf photo and see both models' predictions side by side.
 
 ## Results
 
